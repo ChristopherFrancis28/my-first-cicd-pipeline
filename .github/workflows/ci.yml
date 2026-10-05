@@ -23,3 +23,12 @@ jobs:
 
       - name: Run tests
         run: pytest
+
+      - name: Package application
+        run: zip -r my-first-app.zip . -x ".git/*"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-first-app
+          path: my-first-app.zip
